@@ -174,14 +174,16 @@ void ICMIMax7219::setDigitRaw(uint8_t which, uint8_t value)
 {
     if (which >= 0 && which < this->digitCount)
     {
-        // Apply the bit translation to the value
+      // Apply the bit translation to the value
         uint8_t translatedValue = value;
-        bitWrite(translatedValue, 6, bitRead(value, 0));
-        bitWrite(translatedValue, 5, bitRead(value, 1));
-        bitWrite(translatedValue, 4, bitRead(value, 2));
-        bitWrite(translatedValue, 2, bitRead(value, 4));
-        bitWrite(translatedValue, 1, bitRead(value, 5));
-        bitWrite(translatedValue, 0, bitRead(value, 6));
+        bitWrite(translatedValue, 7, bitRead(value, 0));
+		bitWrite(translatedValue, 6, bitRead(value, 1));
+        bitWrite(translatedValue, 5, bitRead(value, 2));
+        bitWrite(translatedValue, 4, bitRead(value, 3));
+		bitWrite(translatedValue, 3, bitRead(value, 4));
+        bitWrite(translatedValue, 2, bitRead(value, 5));
+        bitWrite(translatedValue, 1, bitRead(value, 6));
+        bitWrite(translatedValue, 0, bitRead(value, 7));
         // register parameter is between 0 and 7, register address is simply +1
         writeRegister(which + 1, translatedValue);
     }

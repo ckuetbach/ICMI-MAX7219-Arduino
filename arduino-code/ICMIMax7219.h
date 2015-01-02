@@ -99,6 +99,7 @@ public:
      */
     void enable(boolean enable);
 
+
     /**
      * Sets the register content of the designated digit/row to the specified value.
      * Each of the eight bits in value represents a single segment/column of the
@@ -112,18 +113,18 @@ public:
      *
      *    bit In | bit sent | semgent
      *    -------+----------+---------
-     *       0   |    6     |    A
-     *       1   |    5     |    B
-     *       2   |    4     |    C
-     *       3   |    3     |    D
-     *       4   |    2     |    E
-     *       5   |    1     |    F
-     *       6   |    0     |    G
-     *       7   |    7     |    DP
+     *       0   |    7     |    A
+     *       1   |    6     |    B
+     *       2   |    5     |    C
+     *       3   |    4     |    D
+     *       4   |    3     |    E
+     *       5   |    2     |    F
+     *       6   |    1     |    G
+     *       7   |    0     |    DP
      *
      * Example: the value to display a 5 on the display (segments A, F, G, C, D) would be
      *          B01101101. This is the value passed to this method. The translated value
-     *          sent to the IC would be B01011011.
+     *          sent to the IC would be B10110110.
      *
      * @param which the index of the digit/row to configure. The value must be
      *              between 0 and the value of digitCount (given in the constructor)
